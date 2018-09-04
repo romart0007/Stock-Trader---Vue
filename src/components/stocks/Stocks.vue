@@ -1,3 +1,14 @@
 <template>
-    <h2>Stocks Component</h2>
+    <div class="row">
+        <app-stock v-for="stock in stocks" :stock="stock"></app-stock>
+    </div>
 </template>
+
+<script>
+import Stock from './Stock.vue';
+export default {
+    components: {
+        appStock: Stock
+    }
+}
+</script>
