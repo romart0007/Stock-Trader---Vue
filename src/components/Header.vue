@@ -10,8 +10,8 @@
          width:  100%;
          ">
         <ul class="navbar-nav">
-            <li class="nav-item"><a href="/portfolio" class="nav-link">Portfolio</a></li>
-            <li class="nav-item router-link-exact-active active"><a href="/stocks" class="nav-link">Stocks</a></li>
+            <router-link tag="li" class="nav-item" to="/portfolio" activeClass="active"><a class="nav-link">Portfolio</a></router-link>
+            <router-link tag="li" class="nav-item" to="/stocks" activeClass="active"><a class="nav-link">Stocks</a></router-link>
         </ul>
         <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown"><a href="#" class="nav-link">End Day </a></li>
