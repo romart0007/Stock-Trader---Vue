@@ -1,20 +1,21 @@
 <template>
     <div class="col-sm-6 col-md-4 mb-4">
         <div class="card">
-            <h5 class="card-header">{{ stock.name }} <small>(Price: {{ stock.price }} | Quantity: {{stock.quantity}})</small></h5>
+            <h5 class="card-header">{{ stock.name }} <small>(Price: {{ stock.price | currency }} | Quantity: {{stock.quantity}})</small></h5>
             <div class="card-body">
                 <p class="card-text">With supporting holder as a natural lead-in to additional content.</p>
                 <div class="input-group">
                     <input type="number" 
                            v-model="quantity"
+                          :class="{danger: insufficientQuantity}"
                            class="form-control" 
                            placeholder="Quantity"
                            aria-label="Amount (to the nearest dollar)">
                     <div class="input-group-append">
                         <button @click="sellStock" 
-                                :disabled="quantity <=0"
+                                :disabled="insufficientQuantity || quantity <=0"
                                 class="btn btn-success input-group-text"
-                                >Sell</button>
+                                >{{insufficientQuantity ? 'Not enough' : 'Sell'}}</button>
                     </div>
                 </div>
             </div>
@@ -31,9 +32,14 @@ export default {
       quantity: 0
     };
   },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity;
+    }
+  },
   methods: {
     ...mapActions({
-      placeSellOrder: 'sellStock'
+      placeSellOrder: "sellStock"
     }),
     sellStock() {
       const order = {
@@ -48,3 +54,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.danger {
+  border: 1px solid red;
+}
+</style>
