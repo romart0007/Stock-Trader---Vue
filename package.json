@@ -5,7 +5,7 @@
   "author": "labboss",
   "private": true,
   "wst": "/dist/",
-  "homepage": "https://github.com/romart007/Stock-Trader",
+  "homepage": "git@github.com:romart007/Stock-Trader",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
