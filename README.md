@@ -1,5 +1,5 @@
 # stock
-> https://romart007.github.io/Stock-Trader/
+> https://stock-trader.netlify.com/stocks
 > stock trader demo
 
 ## Build Setup
